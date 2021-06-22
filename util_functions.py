@@ -24,7 +24,7 @@ def stitch(img1, img2):
     contour_maxArea = max(contours, key=cv2.contourArea)
     (x, y, width, height) = cv2.boundingRect(contour_maxArea)
     result = result[y: y + height, x: x + width]
-    plt.xlabel("Current resulting panorama", fontsize=14)
+    plt.xlabel("Removed rightmost empty black space", fontsize=14)
     plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
     plt.show()
 
@@ -105,6 +105,7 @@ def RANSAC_SIFT(img1, img2, img1_gray, img2_gray):
     plt.xlabel("Resulting stitched image (img2 to img1)", fontsize=14)
     plt.imshow(cv2.cvtColor(result2to1, cv2.COLOR_BGR2RGB))
     plt.show()
+
     return result2to1
 
 def RANSAC_BRISK(img1, img2, img1_gray, img2_gray):
